@@ -33,7 +33,7 @@ namespace CoWLauncher
                 return;
             }
 
-            string cowCfgPath = Path.Combine(cowPath, "warhammer.cfg");
+            File.Copy("./cfg/warhammer_windowed.cfg", Path.Combine(cowPath, "warhammer_windowed.cfg"), true);
 
             if (chkRemoveTextBin.Checked)
             {
@@ -71,6 +71,12 @@ namespace CoWLauncher
                 }
             }
 
+            string warhammerCfg = "warhammer.cfg";
+            if (chkWindowed.Checked)
+            {
+                warhammerCfg = "warhammer_windowed.cfg";
+            }
+
             Process kingdomProcess = new Process();
             kingdomProcess.StartInfo.FileName = "cmd.exe";
             kingdomProcess.StartInfo.UseShellExecute = false;
@@ -80,7 +86,7 @@ namespace CoWLauncher
             List<string> commandInputs = new List<string>()
             {
                 "cd \"" + m2kingdom +"\"",
-                "kingdoms.exe @mods\\Call_of_Warhammer\\warhammer.cfg"
+                "kingdoms.exe @mods\\Call_of_Warhammer\\" + warhammerCfg
             };
             foreach (var command in commandInputs)
             {
@@ -105,6 +111,7 @@ namespace CoWLauncher
             if(settingWin.ShowDialog() == DialogResult.OK)
             {
                 setting = settingWin.NewSetting;
+                setting.Save("./cow.ini");
             }
         }
     }

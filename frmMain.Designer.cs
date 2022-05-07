@@ -39,6 +39,7 @@ namespace CoWLauncher
             this.mnuFileSetting = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripSeparator();
             this.mnuExit = new System.Windows.Forms.ToolStripMenuItem();
+            this.chkWindowed = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -113,27 +114,38 @@ namespace CoWLauncher
             // mnuFileSetting
             // 
             this.mnuFileSetting.Name = "mnuFileSetting";
-            this.mnuFileSetting.Size = new System.Drawing.Size(224, 26);
+            this.mnuFileSetting.Size = new System.Drawing.Size(145, 26);
             this.mnuFileSetting.Text = "Setting";
             this.mnuFileSetting.Click += new System.EventHandler(this.mnuFileSetting_Click);
             // 
             // toolStripMenuItem1
             // 
             this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-            this.toolStripMenuItem1.Size = new System.Drawing.Size(221, 6);
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(142, 6);
             // 
             // mnuExit
             // 
             this.mnuExit.Name = "mnuExit";
-            this.mnuExit.Size = new System.Drawing.Size(224, 26);
+            this.mnuExit.Size = new System.Drawing.Size(145, 26);
             this.mnuExit.Text = "Exit";
             this.mnuExit.Click += new System.EventHandler(this.mnuExit_Click);
+            // 
+            // chkWindowed
+            // 
+            this.chkWindowed.AutoSize = true;
+            this.chkWindowed.Location = new System.Drawing.Point(222, 209);
+            this.chkWindowed.Name = "chkWindowed";
+            this.chkWindowed.Size = new System.Drawing.Size(110, 24);
+            this.chkWindowed.TabIndex = 5;
+            this.chkWindowed.Text = "Windowed";
+            this.chkWindowed.UseVisualStyleBackColor = true;
             // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(657, 454);
+            this.Controls.Add(this.chkWindowed);
             this.Controls.Add(this.chkRemoveTextBin);
             this.Controls.Add(this.chkRemoveRWNFile);
             this.Controls.Add(this.btnStart);
@@ -165,6 +177,7 @@ namespace CoWLauncher
         private System.Windows.Forms.ToolStripMenuItem mnuFileSetting;
         private System.Windows.Forms.ToolStripSeparator toolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem mnuExit;
+        private System.Windows.Forms.CheckBox chkWindowed;
     }
 }
 

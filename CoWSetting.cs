@@ -36,5 +36,14 @@ namespace CoWLauncher
         {
             m2KingdomPath = newPath;
         }
+
+        public void Save(string file)
+        {
+            StreamWriter writer = new StreamWriter(file);
+
+            writer.WriteLine(string.Format("M2KingdomPath = {0}", m2KingdomPath));
+            
+            writer.Close();
+        }
     }
 }

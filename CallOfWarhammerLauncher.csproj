@@ -32,9 +32,16 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Update="cfg\warhammer_windowed.cfg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Update="cow.ini">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="cfg\" />
   </ItemGroup>
 
 </Project>
