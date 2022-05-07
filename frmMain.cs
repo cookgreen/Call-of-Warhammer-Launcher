@@ -24,6 +24,30 @@ namespace CoWLauncher
 
         private void btnStart_Click(object sender, EventArgs e)
         {
+
+            bool isContinue = true;
+
+            //Directory Check
+            while (!Directory.Exists(setting.M2KingdomPath) || 
+                   !File.Exists(Path.Combine(setting.M2KingdomPath, "kingdoms.exe")))
+            {
+                frmSetting settingWin = new frmSetting(setting);
+                if(settingWin.ShowDialog() == DialogResult.OK)
+                {
+                    setting = settingWin.NewSetting;
+                }
+                else
+                {
+                    isContinue = false;
+                    break;
+                }
+            }
+
+            if (!isContinue)
+            {
+                return;
+            }
+
             string m2kingdom = setting.M2KingdomPath;
             string cowPath = Path.Combine(m2kingdom, "mods/Call_of_Warhammer");
 

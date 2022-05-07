@@ -22,6 +22,7 @@ namespace CoWLauncher
         public frmSetting(CoWSetting setting)
         {
             InitializeComponent();
+            this.setting = setting;
             txtM2KingdomPath.Text = setting.M2KingdomPath;
         }
 
@@ -38,6 +39,7 @@ namespace CoWLauncher
         private void btnOK_Click(object sender, EventArgs e)
         {
             setting.ChangeM2KingdomPath(txtM2KingdomPath.Text);
+            setting.Save("./cow.ini");
             DialogResult = DialogResult.OK;
         }
 
