@@ -139,6 +139,7 @@ namespace CoWLauncher
             this.chkWindowed.TabIndex = 5;
             this.chkWindowed.Text = "Windowed";
             this.chkWindowed.UseVisualStyleBackColor = true;
+            this.chkWindowed.Visible = false;
             // 
             // frmMain
             // 

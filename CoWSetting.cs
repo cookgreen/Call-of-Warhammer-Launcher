@@ -13,6 +13,7 @@ namespace CoWLauncher
         private string modName;
         private string launcherIcon;
         private string launcherBackground;
+        private string version;
 
         public string M2KingdomPath
         {
@@ -32,6 +33,11 @@ namespace CoWLauncher
         public string LauncherBackground
         {
             get { return launcherBackground; }
+        }
+
+        public string Version
+        {
+            get { return version; }
         }
 
         public CoWSetting(string settingFile)
@@ -64,6 +70,10 @@ namespace CoWLauncher
                 {
                     launcherBackground = tokenValue;
                 }
+                else if (tokenKey == "Version")
+                {
+                    version = tokenValue;
+                }
             }
             reader.Close();
         }
@@ -85,6 +95,7 @@ namespace CoWLauncher
             writer.WriteLine(string.Format("Mod = {0}", modName));
             writer.WriteLine(string.Format("LauncherIcon = {0}", launcherIcon));
             writer.WriteLine(string.Format("LauncherBackground = {0}", launcherBackground));
+            writer.WriteLine(string.Format("Version = {0}", version));
             writer.Close();
         }
     }

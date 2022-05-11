@@ -32,7 +32,7 @@ namespace CoWLauncher
                 pbLauncherBackground.Image = new Bitmap(di.FullName);
             }
 
-            Text = setting.ModName.Replace("_", " ") + " Mod Launcher";
+            Text = string.Format("{0} Mod Launcher - [{1}]", setting.ModName.Replace("_", " "), setting.Version);
         }
 
         private void btnStart_Click(object sender, EventArgs e)
@@ -62,7 +62,7 @@ namespace CoWLauncher
             }
 
             string m2kingdom = setting.M2KingdomPath;
-            string cowPath = Path.Combine(m2kingdom, "mods/Call_of_Warhammer");
+            string cowPath = Path.Combine(m2kingdom, "mods/" + setting.ModName);
 
             if (!Directory.Exists(cowPath))
             {
