@@ -5,7 +5,7 @@ function remove_text_bin(path, mod)
 	directoryInfo = DirectoryInfo(mapFullPath)
 	for fl in directoryInfo.GetFiles() do
 		extension = fl.Extension;
-		if(extension == "bin") then
+		if(extension == ".bin") then
 			lfs.rmdir(fl)
 		end
 	end
