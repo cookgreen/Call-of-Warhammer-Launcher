@@ -6,7 +6,7 @@
     <UseWindowsForms>true</UseWindowsForms>
     <AssemblyName>CoWLauncher</AssemblyName>
     <RootNamespace>CoWLauncher</RootNamespace>
-    <ApplicationIcon>CoW.ico</ApplicationIcon>
+    <ApplicationIcon>kingdoms.ico</ApplicationIcon>
     <StartupObject>CoWLauncher.Program</StartupObject>
     <Authors>Yin Xiaoguang</Authors>
     <Product>Call of Warhammer Launcher</Product>
@@ -35,7 +35,16 @@
     <None Update="cfg\warhammer_windowed.cfg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
+    <None Update="CoW.ico">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Update="cow.ini">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="img\CoW.ico">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="img\CoW.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
   </ItemGroup>

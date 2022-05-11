@@ -30,30 +30,30 @@ namespace CoWLauncher
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMain));
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.pbLauncherBackground = new System.Windows.Forms.PictureBox();
             this.btnStart = new System.Windows.Forms.Button();
             this.chkRemoveRWNFile = new System.Windows.Forms.CheckBox();
             this.chkRemoveTextBin = new System.Windows.Forms.CheckBox();
-            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.menu = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuFileSetting = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripSeparator();
             this.mnuExit = new System.Windows.Forms.ToolStripMenuItem();
             this.chkWindowed = new System.Windows.Forms.CheckBox();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            this.menuStrip1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbLauncherBackground)).BeginInit();
+            this.menu.SuspendLayout();
             this.SuspendLayout();
             // 
-            // pictureBox1
+            // pbLauncherBackground
             // 
-            this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pictureBox1.Image = global::CoWLauncher.Properties.Resources.CoW;
-            this.pictureBox1.Location = new System.Drawing.Point(0, 28);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(657, 426);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
+            this.pbLauncherBackground.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pbLauncherBackground.Image = global::CoWLauncher.Properties.Resources.CoW;
+            this.pbLauncherBackground.Location = new System.Drawing.Point(0, 28);
+            this.pbLauncherBackground.Name = "pbLauncherBackground";
+            this.pbLauncherBackground.Size = new System.Drawing.Size(657, 426);
+            this.pbLauncherBackground.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbLauncherBackground.TabIndex = 0;
+            this.pbLauncherBackground.TabStop = false;
             // 
             // btnStart
             // 
@@ -90,16 +90,16 @@ namespace CoWLauncher
             this.chkRemoveTextBin.Text = "Remove Text Bin";
             this.chkRemoveTextBin.UseVisualStyleBackColor = true;
             // 
-            // menuStrip1
+            // menu
             // 
-            this.menuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
-            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.menu.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.menu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.fileToolStripMenuItem});
-            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
-            this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(657, 28);
-            this.menuStrip1.TabIndex = 4;
-            this.menuStrip1.Text = "menuStrip1";
+            this.menu.Location = new System.Drawing.Point(0, 0);
+            this.menu.Name = "menu";
+            this.menu.Size = new System.Drawing.Size(657, 28);
+            this.menu.TabIndex = 4;
+            this.menu.Text = "menuStrip1";
             // 
             // fileToolStripMenuItem
             // 
@@ -149,18 +149,18 @@ namespace CoWLauncher
             this.Controls.Add(this.chkRemoveTextBin);
             this.Controls.Add(this.chkRemoveRWNFile);
             this.Controls.Add(this.btnStart);
-            this.Controls.Add(this.pictureBox1);
-            this.Controls.Add(this.menuStrip1);
+            this.Controls.Add(this.pbLauncherBackground);
+            this.Controls.Add(this.menu);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.MainMenuStrip = this.menuStrip1;
+            this.MainMenuStrip = this.menu;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "frmMain";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Call of Warhammer Launcher";
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            this.menuStrip1.ResumeLayout(false);
-            this.menuStrip1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbLauncherBackground)).EndInit();
+            this.menu.ResumeLayout(false);
+            this.menu.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -168,11 +168,11 @@ namespace CoWLauncher
 
         #endregion
 
-        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox pbLauncherBackground;
         private System.Windows.Forms.Button btnStart;
         private System.Windows.Forms.CheckBox chkRemoveRWNFile;
         private System.Windows.Forms.CheckBox chkRemoveTextBin;
-        private System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.MenuStrip menu;
         private System.Windows.Forms.ToolStripMenuItem fileToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem mnuFileSetting;
         private System.Windows.Forms.ToolStripSeparator toolStripMenuItem1;

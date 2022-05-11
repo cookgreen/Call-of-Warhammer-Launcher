@@ -20,6 +20,19 @@ namespace CoWLauncher
         {
             InitializeComponent();
             setting = new CoWSetting("./cow.ini");
+            DirectoryInfo di = new DirectoryInfo(setting.LauncherIcon);
+            if (File.Exists(di.FullName))
+            {
+                Icon = new Icon(di.FullName);
+            }
+
+            di = new DirectoryInfo(setting.LauncherBackground);
+            if (File.Exists(di.FullName))
+            {
+                pbLauncherBackground.Image = new Bitmap(di.FullName);
+            }
+
+            Text = setting.ModName.Replace("_", " ") + " Mod Launcher";
         }
 
         private void btnStart_Click(object sender, EventArgs e)

@@ -24,6 +24,7 @@ namespace CoWLauncher
             InitializeComponent();
             this.setting = setting;
             txtM2KingdomPath.Text = setting.M2KingdomPath;
+            txtModName.Text = setting.ModName;
         }
 
         private void btnBrowseM2Kingdom_Click(object sender, EventArgs e)
@@ -38,7 +39,20 @@ namespace CoWLauncher
 
         private void btnOK_Click(object sender, EventArgs e)
         {
+            if(!Directory.Exists(txtM2KingdomPath.Text))
+            {
+                MessageBox.Show("The Medieval II Total War kingdom.exe you input is invalid!");
+                return;
+            }
+
+            if (!Directory.Exists(Path.Combine(txtM2KingdomPath.Text, txtModName.Text)))
+            {
+                MessageBox.Show("The Mod you input is invalid!");
+                return;
+            }
+
             setting.ChangeM2KingdomPath(txtM2KingdomPath.Text);
+            setting.ChangeModName(txtModName.Text);
             setting.Save("./cow.ini");
             DialogResult = DialogResult.OK;
         }
