@@ -9,16 +9,22 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using NLua;
 
 namespace CoWLauncher
 {
     public partial class frmMain : Form
     {
+        private Lua luaEnv;
         private CoWSetting setting;
 
         public frmMain()
         {
             InitializeComponent();
+
+            luaEnv = new Lua();
+            luaEnv.LoadCLRPackage();
+
             setting = new CoWSetting("./cow.ini");
             DirectoryInfo di = new DirectoryInfo(setting.LauncherIcon);
             if (File.Exists(di.FullName))
@@ -27,12 +33,72 @@ namespace CoWLauncher
             }
 
             di = new DirectoryInfo(setting.LauncherBackground);
+
             if (File.Exists(di.FullName))
             {
                 pbLauncherBackground.Image = new Bitmap(di.FullName);
             }
 
-            Text = string.Format("{0} Mod Launcher - [{1}]", setting.ModName.Replace("_", " "), setting.Version);
+            Text = string.Format("{0} Mod Launcher - [{1}]", setting.Mod.Replace("_", " "), setting.Version);
+
+
+            int initLeft = btnStart.Location.X;
+            int initTop = btnStart.Location.Y;
+
+            initTop -= 30;
+
+            for (int i = 0; i < setting.ScriptSettings.Count; i++)
+            {
+                initTop -= 40;
+
+                var scriptSetting = setting.ScriptSettings[i];
+                if (scriptSetting.Type == "CheckBox")
+                {
+                    CheckBox checkBoxCtrl = new CheckBox();
+                    checkBoxCtrl.AutoSize = true;
+                    checkBoxCtrl.Name = "chkCustom" + (i + 1);
+                    checkBoxCtrl.Text = scriptSetting.Name;
+                    checkBoxCtrl.Location = new Point(initLeft, initTop);
+                    checkBoxCtrl.CheckedChanged += (o, e) => 
+                    {
+                        if ((o as CheckBox).Checked)
+                        {
+                            DirectoryInfo luaFileInfo = new DirectoryInfo(Path.Combine(setting.LuaScriptDir, scriptSetting.Script));
+                            luaEnv.DoFile(luaFileInfo.FullName);
+                            var func = luaEnv[scriptSetting.Function] as LuaFunction;
+
+                            if (scriptSetting.Param1.StartsWith("{$SETTING}"))
+                            {
+                                string str = scriptSetting.Param1.Substring("{$SETTING}".Length + 1);
+                                var paramValue = setting.GetType().GetProperty(str).GetValue(setting).ToString();
+
+                                scriptSetting.Param1Value = paramValue;
+
+                                if (string.IsNullOrEmpty(scriptSetting.Param2))
+                                {
+                                    scriptSetting.Func = func;
+                                }
+                            };
+
+                            if (scriptSetting.Param2.StartsWith("{$SETTING}"))
+                            {
+                                string str = scriptSetting.Param2.Substring("{$SETTING}".Length + 1);
+                                var paramValue = setting.GetType().GetProperty(str).GetValue(setting);
+                                scriptSetting.Param2Value = paramValue.ToString();
+                                scriptSetting.Func = func;
+                            };
+                        }
+                        else
+                        {
+                            scriptSetting.Func = null;
+                            scriptSetting.Param1Value = null;
+                            scriptSetting.Param2Value = null;
+                        }
+                    };
+                    checkBoxCtrl.Checked = true;
+                    pbLauncherBackground.Controls.Add(checkBoxCtrl);
+                }
+            }
         }
 
         private void btnStart_Click(object sender, EventArgs e)
@@ -62,56 +128,30 @@ namespace CoWLauncher
             }
 
             string m2kingdom = setting.M2KingdomPath;
-            string cowPath = Path.Combine(m2kingdom, "mods/" + setting.ModName);
+            string cowPath = Path.Combine(m2kingdom, "mods/" + setting.Mod);
 
             if (!Directory.Exists(cowPath))
             {
-                MessageBox.Show("You don't install the Call of Warhammer mod!");
+                MessageBox.Show("You don't install the required mod!");
                 return;
             }
 
-            File.Copy("./cfg/warhammer_windowed.cfg", Path.Combine(cowPath, "warhammer_windowed.cfg"), true);
+            string warhammerCfg = setting.ModConfig;
 
-            if (chkRemoveTextBin.Checked)
+            for (int i = 0; i < setting.ScriptSettings.Count; i++)
             {
-                List<string> filesNeedToRemove = new List<string>();
-                string cowTextPath = Path.Combine(cowPath, "data\\text");
-                DirectoryInfo di = new DirectoryInfo(cowTextPath);
-                foreach (var file in di.EnumerateFiles())
+                var compliedScriptSetting = setting.ScriptSettings[i];
+                if (compliedScriptSetting.Func != null)
                 {
-                    if(file.Extension == ".bin")
+                    if (!string.IsNullOrEmpty(compliedScriptSetting.Param2Value))
                     {
-                        filesNeedToRemove.Add(file.FullName);
+                        compliedScriptSetting.Func.Call(compliedScriptSetting.Param1Value, compliedScriptSetting.Param2Value);
+                    }
+                    else
+                    {
+                        compliedScriptSetting.Func.Call(compliedScriptSetting.Param1Value);
                     }
                 }
-                foreach (var fileName in filesNeedToRemove)
-                {
-                    File.Delete(fileName);
-                }
-            }
-
-            if (chkRemoveRWNFile.Checked)
-            {
-                string cowMapPath = Path.Combine(cowPath, "data\\world\\maps\\campaign\\imperial_campaign");
-                List<string> filesNeedToRemove = new List<string>();
-                DirectoryInfo di = new DirectoryInfo(cowMapPath);
-                foreach (var file in di.EnumerateFiles())
-                {
-                    if (file.Extension == ".rwn")
-                    {
-                        filesNeedToRemove.Add(file.FullName);
-                    }
-                }
-                foreach (var fileName in filesNeedToRemove)
-                {
-                    File.Delete(fileName);
-                }
-            }
-
-            string warhammerCfg = "warhammer.cfg";
-            if (chkWindowed.Checked)
-            {
-                warhammerCfg = "warhammer_windowed.cfg";
             }
 
             Process kingdomProcess = new Process();
@@ -123,7 +163,7 @@ namespace CoWLauncher
             List<string> commandInputs = new List<string>()
             {
                 "cd \"" + m2kingdom +"\"",
-                "kingdoms.exe @mods\\Call_of_Warhammer\\" + warhammerCfg
+                "kingdoms.exe @mods\\" + setting.Mod + "\\" + warhammerCfg
             };
             foreach (var command in commandInputs)
             {

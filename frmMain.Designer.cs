@@ -32,14 +32,11 @@ namespace CoWLauncher
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMain));
             this.pbLauncherBackground = new System.Windows.Forms.PictureBox();
             this.btnStart = new System.Windows.Forms.Button();
-            this.chkRemoveRWNFile = new System.Windows.Forms.CheckBox();
-            this.chkRemoveTextBin = new System.Windows.Forms.CheckBox();
             this.menu = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuFileSetting = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripSeparator();
             this.mnuExit = new System.Windows.Forms.ToolStripMenuItem();
-            this.chkWindowed = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.pbLauncherBackground)).BeginInit();
             this.menu.SuspendLayout();
             this.SuspendLayout();
@@ -64,31 +61,6 @@ namespace CoWLauncher
             this.btnStart.Text = "Start";
             this.btnStart.UseVisualStyleBackColor = true;
             this.btnStart.Click += new System.EventHandler(this.btnStart_Click);
-            // 
-            // chkRemoveRWNFile
-            // 
-            this.chkRemoveRWNFile.AutoSize = true;
-            this.chkRemoveRWNFile.BackColor = System.Drawing.Color.Transparent;
-            this.chkRemoveRWNFile.Checked = true;
-            this.chkRemoveRWNFile.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.chkRemoveRWNFile.Location = new System.Drawing.Point(222, 259);
-            this.chkRemoveRWNFile.Name = "chkRemoveRWNFile";
-            this.chkRemoveRWNFile.Size = new System.Drawing.Size(158, 24);
-            this.chkRemoveRWNFile.TabIndex = 2;
-            this.chkRemoveRWNFile.Text = "Remove map.rwn";
-            this.chkRemoveRWNFile.UseVisualStyleBackColor = false;
-            // 
-            // chkRemoveTextBin
-            // 
-            this.chkRemoveTextBin.AutoSize = true;
-            this.chkRemoveTextBin.Checked = true;
-            this.chkRemoveTextBin.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.chkRemoveTextBin.Location = new System.Drawing.Point(222, 307);
-            this.chkRemoveTextBin.Name = "chkRemoveTextBin";
-            this.chkRemoveTextBin.Size = new System.Drawing.Size(153, 24);
-            this.chkRemoveTextBin.TabIndex = 3;
-            this.chkRemoveTextBin.Text = "Remove Text Bin";
-            this.chkRemoveTextBin.UseVisualStyleBackColor = true;
             // 
             // menu
             // 
@@ -130,25 +102,11 @@ namespace CoWLauncher
             this.mnuExit.Text = "Exit";
             this.mnuExit.Click += new System.EventHandler(this.mnuExit_Click);
             // 
-            // chkWindowed
-            // 
-            this.chkWindowed.AutoSize = true;
-            this.chkWindowed.Location = new System.Drawing.Point(222, 209);
-            this.chkWindowed.Name = "chkWindowed";
-            this.chkWindowed.Size = new System.Drawing.Size(110, 24);
-            this.chkWindowed.TabIndex = 5;
-            this.chkWindowed.Text = "Windowed";
-            this.chkWindowed.UseVisualStyleBackColor = true;
-            this.chkWindowed.Visible = false;
-            // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(657, 454);
-            this.Controls.Add(this.chkWindowed);
-            this.Controls.Add(this.chkRemoveTextBin);
-            this.Controls.Add(this.chkRemoveRWNFile);
             this.Controls.Add(this.btnStart);
             this.Controls.Add(this.pbLauncherBackground);
             this.Controls.Add(this.menu);
@@ -171,14 +129,11 @@ namespace CoWLauncher
 
         private System.Windows.Forms.PictureBox pbLauncherBackground;
         private System.Windows.Forms.Button btnStart;
-        private System.Windows.Forms.CheckBox chkRemoveRWNFile;
-        private System.Windows.Forms.CheckBox chkRemoveTextBin;
         private System.Windows.Forms.MenuStrip menu;
         private System.Windows.Forms.ToolStripMenuItem fileToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem mnuFileSetting;
         private System.Windows.Forms.ToolStripSeparator toolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem mnuExit;
-        private System.Windows.Forms.CheckBox chkWindowed;
     }
 }
 

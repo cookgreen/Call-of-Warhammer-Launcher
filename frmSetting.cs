@@ -24,7 +24,7 @@ namespace CoWLauncher
             InitializeComponent();
             this.setting = setting;
             txtM2KingdomPath.Text = setting.M2KingdomPath;
-            txtModName.Text = setting.ModName;
+            txtModName.Text = setting.Mod;
         }
 
         private void btnBrowseM2Kingdom_Click(object sender, EventArgs e)
