@@ -16,16 +16,20 @@ namespace CoWLauncher
     public partial class frmMain : Form
     {
         private Lua luaEnv;
+        private ExpressionParser expressionParser;
         private CoWSetting setting;
 
         public frmMain()
         {
             InitializeComponent();
 
+            setting = new CoWSetting("./cow.ini");
+
             luaEnv = new Lua();
             luaEnv.LoadCLRPackage();
 
-            setting = new CoWSetting("./cow.ini");
+            expressionParser = new ExpressionParser(setting);
+
             DirectoryInfo di = new DirectoryInfo(setting.LauncherIcon);
             if (File.Exists(di.FullName))
             {
@@ -143,16 +147,24 @@ namespace CoWLauncher
                 var compliedScriptSetting = setting.ScriptSettings[i];
                 if (compliedScriptSetting.Func != null)
                 {
-                    if (!string.IsNullOrEmpty(compliedScriptSetting.Param2Value))
+                    try
                     {
-                        compliedScriptSetting.Func.Call(compliedScriptSetting.Param1Value, compliedScriptSetting.Param2Value);
-                    }
-                    else
+                        if (!string.IsNullOrEmpty(compliedScriptSetting.Param2Value))
+                        {
+                            compliedScriptSetting.Func.Call(compliedScriptSetting.Param1Value, compliedScriptSetting.Param2Value);
+                        }
+                        else
+                        {
+                            compliedScriptSetting.Func.Call(compliedScriptSetting.Param1Value);
+                        }
+                    }catch(Exception ex)
                     {
-                        compliedScriptSetting.Func.Call(compliedScriptSetting.Param1Value);
+                        MessageBox.Show("Lua Exception: " + ex.ToString());
                     }
                 }
             }
+
+            string cmdLine = expressionParser.ParseCommandLine(setting.CommandLine);
 
             Process kingdomProcess = new Process();
             kingdomProcess.StartInfo.FileName = "cmd.exe";
@@ -163,7 +175,7 @@ namespace CoWLauncher
             List<string> commandInputs = new List<string>()
             {
                 "cd \"" + m2kingdom +"\"",
-                "kingdoms.exe @mods\\" + setting.Mod + "\\" + warhammerCfg
+                cmdLine
             };
             foreach (var command in commandInputs)
             {

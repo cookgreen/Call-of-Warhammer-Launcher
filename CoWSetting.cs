@@ -18,6 +18,7 @@ namespace CoWLauncher
         private string version;
         private string luaScriptDir;
         private string luaScriptSettingsNum;
+        private string commandLine;
 
         private List<CoWScriptSetting> scriptSettings;
 
@@ -59,6 +60,11 @@ namespace CoWLauncher
         public string LuaScriptSettingsNum
         {
             get { return luaScriptSettingsNum; }
+        }
+
+        public string CommandLine
+        {
+            get { return commandLine; }
         }
 
         public List<CoWScriptSetting> ScriptSettings
@@ -126,6 +132,10 @@ namespace CoWLauncher
                     {
                         luaScriptSettingsNum = tokenValue;
                     }
+                    else if (tokenKey == "CommandLine")
+                    {
+                        commandLine = tokenValue;
+                    }
                     else
                     {
                         if (setting != null)
@@ -183,6 +193,9 @@ namespace CoWLauncher
             writer.WriteLine(string.Format("LauncherIcon = {0}", launcherIcon));
             writer.WriteLine(string.Format("LauncherBackground = {0}", launcherBackground));
             writer.WriteLine(string.Format("Version = {0}", version));
+            writer.WriteLine(string.Format("LuaScriptDir = {0}", luaScriptDir));
+            writer.WriteLine(string.Format("LuaScriptSettingsNum = {0}", luaScriptSettingsNum));
+            writer.WriteLine(string.Format("CommandLine = {0}", commandLine));
 
             for (int i = 0; i < scriptSettings.Count; i++)
             {
