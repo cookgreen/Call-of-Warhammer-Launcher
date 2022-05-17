@@ -1,10 +1,12 @@
 import ('System.IO')
 
 function remove_map_rwn(path, mod)
-	mapFullPath  = path .. "\\" .. mod .. "data\\world\\maps\\campaign\\imperial_campaign"
+	mapFullPath  = path .. "\\mods\\" .. mod .. "\\data\\world\\maps\\campaign\\imperial_campaign"
 	directoryInfo = DirectoryInfo(mapFullPath)
-	for fl in directoryInfo.GetFiles() do
-		extension = fl.Extention;
+	local arr = directoryInfo:GetFiles();
+	for i=1, arr.Length do
+		local fl = arr[i-1]
+		extension = fl.Extension;
 		if(extension == ".rwn") then
 			File.Delete(fl.FullName)
 		end

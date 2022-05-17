@@ -10,6 +10,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using NLua;
+using NLua.Exceptions;
 
 namespace CoWLauncher
 {
@@ -37,12 +38,10 @@ namespace CoWLauncher
             }
 
             di = new DirectoryInfo(setting.LauncherBackground);
-
             if (File.Exists(di.FullName))
             {
                 pbLauncherBackground.Image = new Bitmap(di.FullName);
             }
-
             Text = string.Format("{0} Mod Launcher - [{1}]", setting.Mod.Replace("_", " "), setting.Version);
 
 
@@ -157,7 +156,7 @@ namespace CoWLauncher
                         {
                             compliedScriptSetting.Func.Call(compliedScriptSetting.Param1Value);
                         }
-                    }catch(Exception ex)
+                    }catch(LuaScriptException ex)
                     {
                         MessageBox.Show("Lua Exception: " + ex.ToString());
                     }
