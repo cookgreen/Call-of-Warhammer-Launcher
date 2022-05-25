@@ -9,6 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using CoWLauncher.Forms;
 using NLua;
 using NLua.Exceptions;
 
@@ -201,6 +202,12 @@ namespace CoWLauncher
                 setting = settingWin.NewSetting;
                 setting.Save("./cow.ini");
             }
+        }
+
+        private void mnuLuaConsole_Click(object sender, EventArgs e)
+        {
+            frmLuaConsole luaConsoleWin = new frmLuaConsole();
+            luaConsoleWin.ShowDialog();
         }
     }
 }

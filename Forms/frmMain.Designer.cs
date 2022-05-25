@@ -37,6 +37,8 @@ namespace CoWLauncher
             this.mnuFileSetting = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripSeparator();
             this.mnuExit = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuLuaConsole = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.pbLauncherBackground)).BeginInit();
             this.menu.SuspendLayout();
             this.SuspendLayout();
@@ -66,7 +68,8 @@ namespace CoWLauncher
             // 
             this.menu.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.menu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.fileToolStripMenuItem});
+            this.fileToolStripMenuItem,
+            this.toolsToolStripMenuItem});
             this.menu.Location = new System.Drawing.Point(0, 0);
             this.menu.Name = "menu";
             this.menu.Size = new System.Drawing.Size(657, 28);
@@ -102,6 +105,21 @@ namespace CoWLauncher
             this.mnuExit.Text = "Exit";
             this.mnuExit.Click += new System.EventHandler(this.mnuExit_Click);
             // 
+            // toolsToolStripMenuItem
+            // 
+            this.toolsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.mnuLuaConsole});
+            this.toolsToolStripMenuItem.Name = "toolsToolStripMenuItem";
+            this.toolsToolStripMenuItem.Size = new System.Drawing.Size(63, 24);
+            this.toolsToolStripMenuItem.Text = "Tools";
+            // 
+            // mnuLuaConsole
+            // 
+            this.mnuLuaConsole.Name = "mnuLuaConsole";
+            this.mnuLuaConsole.Size = new System.Drawing.Size(224, 26);
+            this.mnuLuaConsole.Text = "Lua Console";
+            this.mnuLuaConsole.Click += new System.EventHandler(this.mnuLuaConsole_Click);
+            // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -134,6 +152,8 @@ namespace CoWLauncher
         private System.Windows.Forms.ToolStripMenuItem mnuFileSetting;
         private System.Windows.Forms.ToolStripSeparator toolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem mnuExit;
+        private System.Windows.Forms.ToolStripMenuItem toolsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem mnuLuaConsole;
     }
 }
 
