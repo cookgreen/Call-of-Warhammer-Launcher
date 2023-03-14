@@ -6,9 +6,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CoWLauncher
+namespace TotalWarModLauncher
 {
-    public class CoWSetting
+    public class TotalWarSetting
     {
         private string m2KingdomPath;
         private string mod;
@@ -20,7 +20,7 @@ namespace CoWLauncher
         private string luaScriptSettingsNum;
         private string commandLine;
 
-        private List<CoWScriptSetting> scriptSettings;
+        private List<TotalWarModScriptSetting> scriptSettings;
 
         public string M2KingdomPath
         {
@@ -67,14 +67,14 @@ namespace CoWLauncher
             get { return commandLine; }
         }
 
-        public List<CoWScriptSetting> ScriptSettings
+        public List<TotalWarModScriptSetting> ScriptSettings
         {
             get { return scriptSettings; }
         }
 
-        public CoWSetting(string settingFile)
+        public TotalWarSetting(string settingFile)
         {
-            scriptSettings = new List<CoWScriptSetting>();
+            scriptSettings = new List<TotalWarModScriptSetting>();
             parseSettingFile(settingFile);
         }
 
@@ -82,7 +82,7 @@ namespace CoWLauncher
         {
             StreamReader reader = new StreamReader(settingFile);
 
-            CoWScriptSetting setting = null;
+            TotalWarModScriptSetting setting = null;
 
             while (reader.Peek() > -1)
             {
@@ -93,7 +93,7 @@ namespace CoWLauncher
 
                 if (line.StartsWith("[") && line.EndsWith("]"))
                 {
-                    setting = new CoWScriptSetting();
+                    setting = new TotalWarModScriptSetting();
                 }
                 else
                 {
@@ -212,7 +212,7 @@ namespace CoWLauncher
         }
     }
 
-    public class CoWScriptSetting
+    public class TotalWarModScriptSetting
     {
         public string Name { get; set; }
         public string Type { get; set; }

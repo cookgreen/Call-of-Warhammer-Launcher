@@ -9,17 +9,17 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace CoWLauncher
+namespace TotalWarModLauncher
 {
     public partial class frmSetting : Form
     {
-        private CoWSetting setting;
-        public CoWSetting NewSetting
+        private TotalWarSetting setting;
+        public TotalWarSetting NewSetting
         {
             get { return setting; }
         }
 
-        public frmSetting(CoWSetting setting)
+        public frmSetting(TotalWarSetting setting)
         {
             InitializeComponent();
             this.setting = setting;

@@ -10,7 +10,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace CoWLauncher.Forms
+namespace TotalWarModLauncher.Forms
 {
     public partial class frmLuaConsole : Form
     {

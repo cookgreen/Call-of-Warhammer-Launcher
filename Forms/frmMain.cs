@@ -9,23 +9,23 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using CoWLauncher.Forms;
+using TotalWarModLauncher.Forms;
 using NLua;
 using NLua.Exceptions;
 
-namespace CoWLauncher
+namespace TotalWarModLauncher
 {
     public partial class frmMain : Form
     {
         private Lua luaEnv;
         private ExpressionParser expressionParser;
-        private CoWSetting setting;
+        private TotalWarSetting setting;
 
         public frmMain()
         {
             InitializeComponent();
 
-            setting = new CoWSetting("./cow.ini");
+            setting = new TotalWarSetting("./cow.ini");
 
             luaEnv = new Lua();
             luaEnv.LoadCLRPackage();
@@ -41,25 +41,26 @@ namespace CoWLauncher
             di = new DirectoryInfo(setting.LauncherBackground);
             if (File.Exists(di.FullName))
             {
-                pbLauncherBackground.Image = new Bitmap(di.FullName);
+                panelLauncherBackground.BackgroundImage = new Bitmap(di.FullName);
             }
             Text = string.Format("{0} Mod Launcher - [{1}]", setting.Mod.Replace("_", " "), setting.Version);
 
 
-            int initLeft = btnStart.Location.X;
-            int initTop = btnStart.Location.Y;
+            int initLeft = 30;
+            int initTop = 20;
 
-            initTop -= 30;
+            initTop += 15;
 
             for (int i = 0; i < setting.ScriptSettings.Count; i++)
             {
-                initTop -= 40;
+                initTop += 35;
 
                 var scriptSetting = setting.ScriptSettings[i];
                 if (scriptSetting.Type == "CheckBox")
                 {
                     CheckBox checkBoxCtrl = new CheckBox();
                     checkBoxCtrl.AutoSize = true;
+                    checkBoxCtrl.BackColor = Color.White;
                     checkBoxCtrl.Name = "chkCustom" + (i + 1);
                     checkBoxCtrl.Text = scriptSetting.Name;
                     checkBoxCtrl.Location = new Point(initLeft, initTop);
@@ -100,7 +101,7 @@ namespace CoWLauncher
                         }
                     };
                     checkBoxCtrl.Checked = true;
-                    pbLauncherBackground.Controls.Add(checkBoxCtrl);
+                    panelSetting.Controls.Add(checkBoxCtrl);
                 }
             }
         }

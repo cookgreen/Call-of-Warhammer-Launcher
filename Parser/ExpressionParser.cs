@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CoWLauncher
+namespace TotalWarModLauncher
 {
     public class ExpressionParser
     {
@@ -13,7 +13,7 @@ namespace CoWLauncher
 
         private Dictionary<string, IVariableParser> constVariableTable;
 
-        public ExpressionParser(CoWSetting setting)
+        public ExpressionParser(TotalWarSetting setting)
         {
             constVariableTable = new Dictionary<string, IVariableParser>()
             {

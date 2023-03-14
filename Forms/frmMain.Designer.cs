@@ -1,5 +1,5 @@
 ﻿
-namespace CoWLauncher
+namespace TotalWarModLauncher
 {
     partial class frmMain
     {
@@ -30,7 +30,8 @@ namespace CoWLauncher
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMain));
-            this.pbLauncherBackground = new System.Windows.Forms.PictureBox();
+            this.panelLauncherBackground = new System.Windows.Forms.Panel();
+            this.panelSetting = new System.Windows.Forms.Panel();
             this.btnStart = new System.Windows.Forms.Button();
             this.menu = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -39,20 +40,28 @@ namespace CoWLauncher
             this.mnuExit = new System.Windows.Forms.ToolStripMenuItem();
             this.toolsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuLuaConsole = new System.Windows.Forms.ToolStripMenuItem();
-            ((System.ComponentModel.ISupportInitialize)(this.pbLauncherBackground)).BeginInit();
+            this.panelLauncherBackground.SuspendLayout();
             this.menu.SuspendLayout();
             this.SuspendLayout();
             // 
-            // pbLauncherBackground
+            // panelLauncherBackground
             // 
-            this.pbLauncherBackground.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pbLauncherBackground.Image = global::CoWLauncher.Properties.Resources.CoW;
-            this.pbLauncherBackground.Location = new System.Drawing.Point(0, 28);
-            this.pbLauncherBackground.Name = "pbLauncherBackground";
-            this.pbLauncherBackground.Size = new System.Drawing.Size(657, 426);
-            this.pbLauncherBackground.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pbLauncherBackground.TabIndex = 0;
-            this.pbLauncherBackground.TabStop = false;
+            this.panelLauncherBackground.BackgroundImage = global::TotalWarModLauncher.Properties.Resources.CoW;
+            this.panelLauncherBackground.Controls.Add(this.panelSetting);
+            this.panelLauncherBackground.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelLauncherBackground.Location = new System.Drawing.Point(0, 28);
+            this.panelLauncherBackground.Name = "panelLauncherBackground";
+            this.panelLauncherBackground.Size = new System.Drawing.Size(657, 426);
+            this.panelLauncherBackground.TabIndex = 0;
+            // 
+            // panelSetting
+            // 
+            this.panelSetting.AutoScroll = true;
+            this.panelSetting.BackColor = System.Drawing.Color.Transparent;
+            this.panelSetting.Location = new System.Drawing.Point(199, 134);
+            this.panelSetting.Name = "panelSetting";
+            this.panelSetting.Size = new System.Drawing.Size(250, 169);
+            this.panelSetting.TabIndex = 0;
             // 
             // btnStart
             // 
@@ -116,7 +125,7 @@ namespace CoWLauncher
             // mnuLuaConsole
             // 
             this.mnuLuaConsole.Name = "mnuLuaConsole";
-            this.mnuLuaConsole.Size = new System.Drawing.Size(224, 26);
+            this.mnuLuaConsole.Size = new System.Drawing.Size(180, 26);
             this.mnuLuaConsole.Text = "Lua Console";
             this.mnuLuaConsole.Click += new System.EventHandler(this.mnuLuaConsole_Click);
             // 
@@ -126,7 +135,7 @@ namespace CoWLauncher
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(657, 454);
             this.Controls.Add(this.btnStart);
-            this.Controls.Add(this.pbLauncherBackground);
+            this.Controls.Add(this.panelLauncherBackground);
             this.Controls.Add(this.menu);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menu;
@@ -135,7 +144,7 @@ namespace CoWLauncher
             this.Name = "frmMain";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Call of Warhammer Launcher";
-            ((System.ComponentModel.ISupportInitialize)(this.pbLauncherBackground)).EndInit();
+            this.panelLauncherBackground.ResumeLayout(false);
             this.menu.ResumeLayout(false);
             this.menu.PerformLayout();
             this.ResumeLayout(false);
@@ -145,7 +154,7 @@ namespace CoWLauncher
 
         #endregion
 
-        private System.Windows.Forms.PictureBox pbLauncherBackground;
+        private System.Windows.Forms.Panel panelLauncherBackground;
         private System.Windows.Forms.Button btnStart;
         private System.Windows.Forms.MenuStrip menu;
         private System.Windows.Forms.ToolStripMenuItem fileToolStripMenuItem;
@@ -154,6 +163,7 @@ namespace CoWLauncher
         private System.Windows.Forms.ToolStripMenuItem mnuExit;
         private System.Windows.Forms.ToolStripMenuItem toolsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem mnuLuaConsole;
+        private System.Windows.Forms.Panel panelSetting;
     }
 }
 

@@ -4,13 +4,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CoWLauncher
+namespace TotalWarModLauncher
 {
     public class SettingVariableParser : IVariableParser
     {
-        private CoWSetting setting;
+        private TotalWarSetting setting;
 
-        public SettingVariableParser(CoWSetting setting)
+        public SettingVariableParser(TotalWarSetting setting)
         {
             this.setting = setting;
         }

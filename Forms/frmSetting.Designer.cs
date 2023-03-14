@@ -1,5 +1,5 @@
 ﻿
-namespace CoWLauncher
+namespace TotalWarModLauncher
 {
     partial class frmSetting
     {

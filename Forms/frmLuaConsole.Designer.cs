@@ -1,5 +1,5 @@
 ﻿
-namespace CoWLauncher.Forms
+namespace TotalWarModLauncher.Forms
 {
     partial class frmLuaConsole
     {
@@ -67,7 +67,7 @@ namespace CoWLauncher.Forms
             // btnStartTest
             // 
             this.btnStartTest.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.btnStartTest.Image = global::CoWLauncher.Properties.Resources.start;
+            this.btnStartTest.Image = global::TotalWarModLauncher.Properties.Resources.start;
             this.btnStartTest.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnStartTest.Name = "btnStartTest";
             this.btnStartTest.Size = new System.Drawing.Size(29, 24);

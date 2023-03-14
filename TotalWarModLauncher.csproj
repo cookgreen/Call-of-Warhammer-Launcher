@@ -2,12 +2,12 @@
 
   <PropertyGroup>
     <OutputType>WinExe</OutputType>
-    <TargetFramework>net5.0-windows</TargetFramework>
+    <TargetFramework>net6.0-windows</TargetFramework>
     <UseWindowsForms>true</UseWindowsForms>
-    <AssemblyName>CoWLauncher</AssemblyName>
-    <RootNamespace>CoWLauncher</RootNamespace>
+    <AssemblyName>TotalWarModLauncher</AssemblyName>
+    <RootNamespace>TotalWarModLauncher</RootNamespace>
     <ApplicationIcon>kingdoms.ico</ApplicationIcon>
-    <StartupObject>CoWLauncher.Program</StartupObject>
+    <StartupObject>TotalWarModLauncher.Program</StartupObject>
     <Authors>Yin Xiaoguang</Authors>
     <Product>Call of Warhammer Launcher</Product>
     <Description>Call of Warhammer Launcher</Description>

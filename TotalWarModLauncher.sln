@@ -1,9 +1,9 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.32228.343
+# Visual Studio Version 17
+VisualStudioVersion = 17.4.33213.308
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CallOfWarhammerLauncher", "CallOfWarhammerLauncher.csproj", "{DA6D48C6-EDAD-4681-A0EB-E15E24FB3F16}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TotalWarModLauncher", "TotalWarModLauncher.csproj", "{DA6D48C6-EDAD-4681-A0EB-E15E24FB3F16}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
