@@ -25,7 +25,7 @@ namespace TotalWarModLauncher
         {
             InitializeComponent();
 
-            setting = new TotalWarSetting("./cow.ini");
+            setting = new TotalWarSetting("./setting.ini");
 
             luaEnv = new Lua();
             luaEnv.LoadCLRPackage();
@@ -201,7 +201,7 @@ namespace TotalWarModLauncher
             if(settingWin.ShowDialog() == DialogResult.OK)
             {
                 setting = settingWin.NewSetting;
-                setting.Save("./cow.ini");
+                setting.Save("./setting.ini");
             }
         }
 

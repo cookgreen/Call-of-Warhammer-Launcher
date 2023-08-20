@@ -13,7 +13,7 @@ Launcher app for Medieval 2 Total War Mod, current example is the Call of Warham
 | Parameter Name| Type |Note|
 |---------------|------|----|
 |`{$KINGDOM_EXE}`| String|Full Path of Executable for the Medieval II Total War|
-|`{$SETTING}`    | CLASS |Instance of the `TotalWarSetting` class              |  
+|`{$SETTING}`    | Class |Instance of the `TotalWarSetting` class              |  
 
 ## License  
 GNU GPLv3  

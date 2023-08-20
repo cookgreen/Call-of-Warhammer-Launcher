@@ -36,7 +36,7 @@
     <None Update="CoW.ico">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Update="cow.ini">
+    <None Update="setting.ini">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Update="img\CoW.ico">
