@@ -30,8 +30,9 @@ namespace TotalWarModLauncher.Forms
             {
                 try
                 {
-                    lua.DoString(txtLuaCode.Text);
-                }catch(LuaScriptException ex)
+                    var results = lua.DoString(txtLuaCode.Text);
+                }
+                catch(LuaScriptException ex)
                 {
                     txtLuaResult.Text = ex.InnerException.ToString();
                 }
